@@ -3,7 +3,7 @@ import { StyleSheet, View, FlatList } from 'react-native';
 import { connect } from "react-redux";
 import ListItem from "./components/ListItem";
 import Input from "./components/Input"
-import { complete, submit } from "./reducers/todos"
+import { complete, saveTodo } from "./reducers/todos"
 
 const App = ({ data, underlineTodo, sendTodo }) => {
     const [value, setValue] = useState('')
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     underlineTodo: (key) => dispatch(complete(key)),
-    sendTodo: (text) => dispatch(submit(text)),
+    sendTodo: (text) => dispatch(saveTodo(text)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
